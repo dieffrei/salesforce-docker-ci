@@ -32,6 +32,9 @@ RUN mkdir -p /sfdx \
     && /sfdx/install \
     && rm -rf /sfdx
 
+# Install jsforce package    
+RUN npm install jsforce    
+
 # Download Sonarscanner
 RUN curl -SL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492.zip -o sonar.zip \
     && unzip sonar.zip \
