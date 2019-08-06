@@ -25,8 +25,12 @@ COPY build /build/
 ENV ANT_HOME=/usr/share/java/apache-ant \
     PATH=$PATH:$ANT_HOME/bin
 
-# Install SFDX
-RUN npm install sfdx-cli -g
+# Download SFDX
+RUN mkdir -p /sfdx \
+    && curl -SL https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz | tar -xJC /sfdx --strip-components 1 \
+    && ln -sf /usr/bin/node /sfdx/bin/node \
+    && /sfdx/install \
+    && rm -rf /sfdx
 
 # Install jsforce package    
 RUN npm install jsforce    
