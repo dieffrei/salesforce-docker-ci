@@ -54,5 +54,4 @@ RUN curl -SL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/son
 COPY docker-entrypoint.sh /entrypoint.sh
 RUN chmod ugo+x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
-
 # EOF
