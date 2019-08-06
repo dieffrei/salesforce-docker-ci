@@ -26,10 +26,18 @@ ENV ANT_HOME=/usr/share/java/apache-ant \
     PATH=$PATH:$ANT_HOME/bin
 
 # Install SFDX
-RUN npm install sfdx-cli
+RUN npm install sfdx-cli -g
 
 # Install jsforce package    
 RUN npm install jsforce    
+
+RUN rm -rf ./texei-sfdx-plugin \
+git clone https://github.com/dieffrei/texei-sfdx-plugin \
+sfdx plugins:link ./texei-sfdx-plugin
+
+RUN -rf ./sfdx-kpn-plugin \
+git clone https://github.com/dieffrei/sfdx-kpn-plugin \
+sfdx plugins:link ./sfdx-kpn-plugin
 
 # Download Sonarscanner
 RUN curl -SL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492.zip -o sonar.zip \
