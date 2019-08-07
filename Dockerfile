@@ -27,13 +27,6 @@ ENV ANT_HOME=/usr/share/java/apache-ant \
     PATH=$PATH:$ANT_HOME/bin \
     SFDX_USE_GENERIC_UNIX_KEYCHAIN=true
 
-# Download SFDX
-RUN mkdir -p /sfdx \
-    && curl -SL https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz | tar -xJC /sfdx --strip-components 1 \
-    && ln -sf /usr/bin/node /sfdx/bin/node \
-    && /sfdx/install \
-    && rm -rf /sfdx
-
 RUN git clone https://github.com/dieffrei/texei-sfdx-plugin
 RUN sfdx plugins:link ./texei-sfdx-plugin
 
