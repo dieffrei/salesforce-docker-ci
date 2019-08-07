@@ -25,7 +25,7 @@ COPY build /build/
 # Setup Ant
 ENV ANT_HOME=/usr/share/java/apache-ant \
     PATH=$PATH:$ANT_HOME/bin \
-    SFDX_USE_GENERIC_UNIX_KEYCHAIN = true
+    SFDX_USE_GENERIC_UNIX_KEYCHAIN=true
 
 # Download SFDX
 RUN mkdir -p /sfdx \
