@@ -27,6 +27,11 @@ ENV ANT_HOME=/usr/share/java/apache-ant \
     PATH=$PATH:$ANT_HOME/bin \
     SFDX_USE_GENERIC_UNIX_KEYCHAIN=true
 
+# Download SFDX
+RUN npm install sfdx-cli --global
+RUN sfdx --version
+RUN sfdx plugins --core
+
 RUN git clone https://github.com/dieffrei/texei-sfdx-plugin
 RUN sfdx plugins:link ./texei-sfdx-plugin
 
