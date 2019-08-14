@@ -26,8 +26,7 @@ COPY build /build/
 ENV ANT_HOME=/usr/share/java/apache-ant \
     PATH=$PATH:$ANT_HOME/bin \
     SFDX_USE_GENERIC_UNIX_KEYCHAIN=true \
-    SFDX_AUTOUPDATE_DISABLE=true \
-    SFDX_CONTENT_TYPE=JSON
+    SFDX_AUTOUPDATE_DISABLE=true
 
 # Install SFDX
 RUN npm install sfdx-cli --global
