@@ -37,12 +37,6 @@ RUN sfdx plugins --core
 # Install JSForce
 RUN npm install jsforce
 
-RUN git clone https://github.com/dieffrei/texei-sfdx-plugin
-RUN sfdx plugins:link ./texei-sfdx-plugin
-
-RUN git clone https://github.com/dieffrei/sfdx-kpn-plugin
-RUN sfdx plugins:link ./sfdx-kpn-plugin
-
 # Download Sonarscanner
 RUN curl -SL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492.zip -o sonar.zip \
     && unzip sonar.zip \
