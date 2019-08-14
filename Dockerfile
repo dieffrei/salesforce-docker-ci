@@ -25,12 +25,17 @@ COPY build /build/
 # Setup Ant
 ENV ANT_HOME=/usr/share/java/apache-ant \
     PATH=$PATH:$ANT_HOME/bin \
-    SFDX_USE_GENERIC_UNIX_KEYCHAIN=true
+    SFDX_USE_GENERIC_UNIX_KEYCHAIN=true \
+    SFDX_AUTOUPDATE_DISABLE=true \
+    SFDX_CONTENT_TYPE=JSON
 
-# Download SFDX
+# Install SFDX
 RUN npm install sfdx-cli --global
 RUN sfdx --version
 RUN sfdx plugins --core
+
+# Install JSForce
+RUN npm install jsforce
 
 RUN git clone https://github.com/dieffrei/texei-sfdx-plugin
 RUN sfdx plugins:link ./texei-sfdx-plugin
